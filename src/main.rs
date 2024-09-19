@@ -1,5 +1,3 @@
-use winit::raw_window_handle::{HasDisplayHandle, HasRawDisplayHandle};
-
 #[derive(Default)]
 struct Application
 {
@@ -20,7 +18,8 @@ impl Application
     {
         // assumes window and image_a are something. They will
         // be if this is being called.
-        if let (Some(window), Some(img), Some(pixels)) = (&mut self.window, &mut self.image_a, &mut self.pixels)
+        if let (Some(window), Some(img), Some(pixels)) = 
+            (&mut self.window, &self.image_a, &mut self.pixels)
         {
             let mut surface_size = window.inner_size();
             surface_size.width = img.width();
@@ -48,11 +47,6 @@ impl Application
             let _ = pixels.render();
         }
     }
-
-    // fn get_pixels(&mut self) -> &mut pixels::Pixels
-    // {
-    //     self.pixels
-    // }
 }
 
 fn verify_image_correct(path_buf: std::path::PathBuf) -> Result<image::DynamicImage, Box<dyn std::error::Error>>
