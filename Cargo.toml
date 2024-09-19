@@ -1,0 +1,10 @@
+[package]
+name = "rust_graphics"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+image = "0.25.2"
+pixels = "0.13.0"
+# wgpu = "22.1.0"
+winit = { version = "0.30.5", features = ["rwh_05"] }
