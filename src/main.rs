@@ -42,15 +42,17 @@ impl Application
                     [rr, gg, bb, aa]
                 ) = (f, i.0)
                 {
-                    *r = rr;
-                    *g = gg;
-                    *b = bb;
-                    *a = aa;
+                    (*r, *g, *b, *a) = (rr, gg, bb, aa);
                 }
             });
             let _ = pixels.render();
         }
     }
+
+    // fn get_pixels(&mut self) -> &mut pixels::Pixels
+    // {
+    //     self.pixels
+    // }
 }
 
 fn verify_image_correct(path_buf: std::path::PathBuf) -> Result<image::DynamicImage, Box<dyn std::error::Error>>
